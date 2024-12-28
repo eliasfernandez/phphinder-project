@@ -1,0 +1,30 @@
+<turbo-frame id="results">
+    <a href="{{ path('app_search_results') }}?q={{ query }}">&laquo;Back</a>
+    <h1>{{ book.title }}</h1>
+    <table>
+        <tr>
+            <th>Authors</th>
+            <td>{{ book.authors|join(', ') }}</td>
+        </tr>
+        <tr>
+            <th>Description</th>
+            <td>{{ book.description }}</td>
+        </tr>
+        <tr>
+            <th>Publisher</th>
+            <td>{{ book.publisher }}</td>
+        </tr>
+        <tr>
+            <th>Category</th>
+            <td>{{ book.category }}</td>
+        </tr>
+        <tr>
+            <th>Publish Date</th>
+            <td>{{ book.publishDate|date('Y-m-d') }}</td>
+        </tr>
+        <tr>
+            <th>Price</th>
+            <td>${{ book.price|number_format(2) }}</td>
+        </tr>
+    </table>
+</turbo-frame>

@@ -26,6 +26,9 @@
             "migrations/.gitignore"
         ]
     },
+    "eliasfernandez/phphinder-bundle": {
+        "version": "0.0.3-alpha"
+    },
     "phpunit/phpunit": {
         "version": "9.6",
         "recipe": {

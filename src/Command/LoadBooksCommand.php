@@ -25,6 +25,7 @@ class LoadBooksCommand extends Command
         parent::__construct();
     }
 
+
     protected function execute(InputInterface $input, OutputInterface $output): int
     {
         $io = new SymfonyStyle($input, $output);
@@ -32,9 +33,13 @@ class LoadBooksCommand extends Command
 
         $handler = fopen($projectDir . '/var/BooksDataset.csv', 'r');
         $header = fgetcsv($handler);
+        $i = 1;
         while ($row = fgetcsv($handler)) {
-            $book = new Book();
-
+            $book = $this->em->getRepository(Book::class)->find($i);
+            if ($book === null) {
+                $book = new Book();
+                $book->setId($i);
+            }
             $price = floatval(preg_replace('/[^\d.]+/', '', $row[6]));
             $date = new \DateTimeImmutable($row[5]);
 
@@ -49,6 +54,7 @@ class LoadBooksCommand extends Command
             $this->em->persist($book);
             $this->em->flush();
             $io->success(sprintf('book added: %s', $book->getId()));
+            $i++;
         }
 
         $io->success('Whole list of books');

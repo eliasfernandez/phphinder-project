@@ -1,0 +1,14 @@
+<turbo-frame id="results">
+{% if results is empty %}
+    <p>No results found.</p>
+{% else %}
+    <ul class="list-group">
+        {% for result in results %}
+            <li class="list-group-item">
+                <strong>{{ result.document._id }}</strong>
+                <a href="/search/results/{{ result.document._id }}?q={{ query }}" data-turbo-frame="results">{{ result.document.title }}</a>
+            </li>
+        {% endfor %}
+    </ul>
+{% endif %}
+</turbo-frame>

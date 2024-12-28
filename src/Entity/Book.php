@@ -21,6 +21,7 @@ class Book
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column]
+    #[PHPhinder\Property(Schema::IS_UNIQUE | Schema::IS_INDEXED | Schema::IS_REQUIRED| Schema::IS_STORED)]
     private ?int $id = null;
 
     #[ORM\Column(length: 255)]
@@ -28,10 +29,10 @@ class Book
     private ?string $title = null;
 
     #[ORM\Column(type: Types::SIMPLE_ARRAY)]
-    #[PHPhinder\Property(Schema::IS_INDEXED | Schema::IS_REQUIRED | Schema::IS_FULLTEXT)]
+    #[PHPhinder\Property(Schema::IS_INDEXED | Schema::IS_REQUIRED)]
     private array $authors = [];
 
-    #[ORM\Column(length: 255)]
+    #[ORM\Column(type: Types::TEXT)]
     #[PHPhinder\Property(Schema::IS_INDEXED)]
     private ?string $description = null;
 
@@ -46,6 +47,12 @@ class Book
 
     #[ORM\Column]
     private ?int $price = null;
+
+    public function setId(int $id): self
+    {
+        $this->id = $id;
+        return $this;
+    }
 
     public function getId(): ?int
     {

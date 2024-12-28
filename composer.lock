@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "0dc0e7b6f3229619bd9ce2087dadaf9d",
+    "content-hash": "98bceb8f724089827a162caaa1d01d9e",
     "packages": [
         {
             "name": "composer/semver",
@@ -1382,19 +1382,20 @@
         },
         {
             "name": "eliasfernandez/phphinder",
-            "version": "0.0.1-alpha",
+            "version": "0.0.4-alpha",
             "source": {
                 "type": "git",
                 "url": "https://github.com/eliasfernandez/phphinder.git",
-                "reference": "e8c263b6e3600f5924edff2e3d4878ea65a92259"
+                "reference": "d4ac5ffefa0a238a1bf121af80815645b0c45ad7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/eliasfernandez/phphinder/zipball/e8c263b6e3600f5924edff2e3d4878ea65a92259",
-                "reference": "e8c263b6e3600f5924edff2e3d4878ea65a92259",
+                "url": "https://api.github.com/repos/eliasfernandez/phphinder/zipball/d4ac5ffefa0a238a1bf121af80815645b0c45ad7",
+                "reference": "d4ac5ffefa0a238a1bf121af80815645b0c45ad7",
                 "shasum": ""
             },
             "require": {
+                "doctrine/dbal": "^3",
                 "wamania/php-stemmer": "3.0.1"
             },
             "require-dev": {
@@ -1421,9 +1422,49 @@
             "description": "A PHP powered lightweight search engine",
             "support": {
                 "issues": "https://github.com/eliasfernandez/phphinder/issues",
-                "source": "https://github.com/eliasfernandez/phphinder/tree/0.0.1-alpha"
+                "source": "https://github.com/eliasfernandez/phphinder/tree/0.0.4-alpha"
             },
-            "time": "2024-12-04T19:36:50+00:00"
+            "time": "2024-12-28T18:00:19+00:00"
+        },
+        {
+            "name": "eliasfernandez/phphinder-bundle",
+            "version": "0.0.3-alpha",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/eliasfernandez/phphinder-bundle.git",
+                "reference": "97a672439bff524a140c57c2b865709bd3601a03"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/eliasfernandez/phphinder-bundle/zipball/97a672439bff524a140c57c2b865709bd3601a03",
+                "reference": "97a672439bff524a140c57c2b865709bd3601a03",
+                "shasum": ""
+            },
+            "require": {
+                "eliasfernandez/phphinder": "^0.0.4@alpha"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "PHPhinderBundle\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "mit"
+            ],
+            "authors": [
+                {
+                    "name": "Elías Fernández",
+                    "email": "eliasfernandez@gmail.com"
+                }
+            ],
+            "description": "Bundle to connect PHPhinder with Symfony",
+            "support": {
+                "issues": "https://github.com/eliasfernandez/phphinder-bundle/issues",
+                "source": "https://github.com/eliasfernandez/phphinder-bundle/tree/0.0.3-alpha"
+            },
+            "time": "2024-12-28T18:14:25+00:00"
         },
         {
             "name": "monolog/monolog",
@@ -10187,7 +10228,9 @@
     ],
     "aliases": [],
     "minimum-stability": "alpha",
-    "stability-flags": [],
+    "stability-flags": {
+        "eliasfernandez/phphinder-bundle": 15
+    },
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {
@@ -10195,6 +10238,6 @@
         "ext-ctype": "*",
         "ext-iconv": "*"
     },
-    "platform-dev": [],
-    "plugin-api-version": "2.3.0"
+    "platform-dev": {},
+    "plugin-api-version": "2.6.0"
 }
