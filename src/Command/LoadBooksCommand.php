@@ -40,10 +40,10 @@ class LoadBooksCommand extends Command
                 $book = new Book();
                 $book->setId($i);
             }
-            $price = floatval(preg_replace('/[^\d.]+/', '', $row[6]));
-            $date = new \DateTimeImmutable($row[5]);
+            $price = floatval(preg_replace('/[^\d.]+/', '', $row[5]));
+            $date = new \DateTimeImmutable(sprintf('%s %s', $row[7], $row[6]));
 
-            $book->setTitle($row[0])
+            $book->setTitle(substr($row[0], 0, 255))
                 ->setAuthors(explode(',', $row[1]))
                 ->setDescription($row[2])
                 ->setCategory($row[3])

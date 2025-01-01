@@ -29,19 +29,31 @@ git clone https://github.com/eliasfernandez/phphinder-project.git
 composer install
 ```
 
-3. Load some books:
+3. Configure the storage
 
+Under `config/packages/phphinder.yaml` configure the storage type (`dbal` or `json`) and the connection string:
+
+```yaml
+parameters:
+  phphinder.storage: 'dbal'
+  phphinder.name: 'pgsql://app:!ChangeMe!@127.0.0.1:5432/app?serverVersion=16&charset=utf8'
+  phphinder.auto_sync: true
 ```
+
+4. Load some books:
+
+```bash
+docker compose up -d
 bin/console app:load-books
 ```
 
-4. Start the server. Install the [symfony-cli](https://symfony.com/download) if you didn't install it before.
+5. Start the server. Install the [symfony-cli](https://symfony.com/download) if you didn't install it before.
 
-```
+```bash
 symfony serve
 ```
 
 
-5. Go to the search url http://localhost:8000/search
+6. Go to the search url http://localhost:8000/search
 
-6. Enjoy!
+7. Enjoy! 
