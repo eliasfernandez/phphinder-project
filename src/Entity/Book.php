@@ -29,7 +29,6 @@ class Book
     private ?string $title = null;
 
     #[ORM\Column(type: Types::SIMPLE_ARRAY)]
-    #[PHPhinder\Property(Schema::IS_INDEXED | Schema::IS_REQUIRED)]
     private array $authors = [];
 
     #[ORM\Column(type: Types::TEXT)]
@@ -76,9 +75,9 @@ class Book
         return $this->authors;
     }
 
-    public function setAuthors(array $Authors): static
+    public function setAuthors(array $authors): static
     {
-        $this->authors = $Authors;
+        $this->authors = $authors;
 
         return $this;
     }
@@ -141,5 +140,11 @@ class Book
         $this->price = $price;
 
         return $this;
+    }
+
+    #[PHPhinder\Property(Schema::IS_INDEXED | Schema::IS_REQUIRED, name: 'authors')]
+    public function getAuthorsCsv(): ?string
+    {
+        return implode(', ', $this->authors);
     }
 }
