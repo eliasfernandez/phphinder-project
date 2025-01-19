@@ -11,6 +11,7 @@ use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Console\Style\SymfonyStyle;
 use Symfony\Component\Filesystem\Path;
 use Symfony\Component\HttpKernel\KernelInterface;
+use Symfony\Component\Stopwatch\Stopwatch;
 
 #[AsCommand(
     name: 'app:load-books',
@@ -33,7 +34,10 @@ class LoadBooksCommand extends Command
 
         $handler = fopen($projectDir . '/var/BooksDataset.csv', 'r');
         $header = fgetcsv($handler);
-        $i = 1;
+        $stopwatch = new Stopwatch();
+
+        $stopwatch->start('load-books');
+        $i = 1; $temp = [];
         while ($row = fgetcsv($handler)) {
             $book = $this->em->getRepository(Book::class)->find($i);
             if ($book === null) {
@@ -49,15 +53,33 @@ class LoadBooksCommand extends Command
                 ->setCategory($row[3])
                 ->setPublisher($row[4])
                 ->setPublishDate($date)
-                ->setPrice($price);
+                ->setPrice(intval($price * 100));
 
             $this->em->persist($book);
-            $this->em->flush();
-            $io->success(sprintf('book added: %s', $book->getId()));
+            $temp[] = $book;
+            if ($i % 100 === 0) {
+                $this->em->flush();
+
+                foreach($temp as $obj) {
+                  $this->em->detach($obj);
+                }
+                $temp = [];
+                gc_enable();
+                gc_collect_cycles();
+
+                $event = $stopwatch->lap('load-books');
+                $lap = count($event->getPeriods());
+                $io->writeln(sprintf('Lap %d: %d ms %d books', $lap, $event->getPeriods()[$lap - 1]->getDuration(), $i));
+            }
             $i++;
         }
+        $this->em->flush();
+        $lap = count($event->getPeriods());
+        $io->writeln(sprintf('Lap %d: %d ms %d books', $lap, $event->getPeriods()[$lap - 1]->getDuration(), $i));
+        $event = $stopwatch->stop('load-books');
+        $io->writeln(sprintf('Total duration: %d ms', $event->getDuration()));
 
-        $io->success('Whole list of books');
+        $io->success('All books imported!');
 
         return Command::SUCCESS;
     }

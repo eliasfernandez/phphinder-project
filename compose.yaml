@@ -21,6 +21,12 @@ services:
     - "5432:5432"
 ###< doctrine/doctrine-bundle ###
 
+  redis:
+    image: redis/redis-stack-server
+    ports:
+      - 6379:6379
+
+
 volumes:
 ###> doctrine/doctrine-bundle ###
   database_data:

@@ -1,4 +1,12 @@
-parameters:
-  phphinder.storage: 'dbal' # 'dbal', 'json'
-  phphinder.name: 'pgsql://app:!ChangeMe!@127.0.0.1:5432/app?serverVersion=16&charset=utf8'
-  phphinder.auto_sync: true
+phphinder:
+  #storage: 'json'
+  #name: 'var'
+  #storage: 'redis'
+  #name: 'tcp://127.0.0.1:6379'
+  storage: 'dbal'
+  name: 'pgsql://app:!ChangeMe!@127.0.0.1:5432/app?serverVersion=16&charset=utf8'
+  auto_sync: false
+  sync_in_background: true
+
+
+
