@@ -1377,16 +1377,16 @@
         },
         {
             "name": "eliasfernandez/phphinder",
-            "version": "v0.1.5-beta",
+            "version": "v0.1.6-beta",
             "source": {
                 "type": "git",
                 "url": "https://github.com/eliasfernandez/phphinder.git",
-                "reference": "a2adad8616fa324e6ac8b95b04cb2ec7cd03963b"
+                "reference": "dc462497cb484c179034e857514f085ef0f1325b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/eliasfernandez/phphinder/zipball/a2adad8616fa324e6ac8b95b04cb2ec7cd03963b",
-                "reference": "a2adad8616fa324e6ac8b95b04cb2ec7cd03963b",
+                "url": "https://api.github.com/repos/eliasfernandez/phphinder/zipball/dc462497cb484c179034e857514f085ef0f1325b",
+                "reference": "dc462497cb484c179034e857514f085ef0f1325b",
                 "shasum": ""
             },
             "require": {
@@ -1419,22 +1419,22 @@
             "description": "A PHP powered lightweight search engine",
             "support": {
                 "issues": "https://github.com/eliasfernandez/phphinder/issues",
-                "source": "https://github.com/eliasfernandez/phphinder/tree/v0.1.5-beta"
+                "source": "https://github.com/eliasfernandez/phphinder/tree/v0.1.6-beta"
             },
-            "time": "2025-01-13T18:31:22+00:00"
+            "time": "2025-01-19T19:55:48+00:00"
         },
         {
             "name": "eliasfernandez/phphinder-bundle",
-            "version": "v0.1.7",
+            "version": "v0.1.8",
             "source": {
                 "type": "git",
                 "url": "https://github.com/eliasfernandez/phphinder-bundle.git",
-                "reference": "f6e05e43fe0fd36b039c9320edecca6fee25acea"
+                "reference": "4ee03fbeb725283598a8c2a0b4c037f77577e76c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/eliasfernandez/phphinder-bundle/zipball/f6e05e43fe0fd36b039c9320edecca6fee25acea",
-                "reference": "f6e05e43fe0fd36b039c9320edecca6fee25acea",
+                "url": "https://api.github.com/repos/eliasfernandez/phphinder-bundle/zipball/4ee03fbeb725283598a8c2a0b4c037f77577e76c",
+                "reference": "4ee03fbeb725283598a8c2a0b4c037f77577e76c",
                 "shasum": ""
             },
             "require": {
@@ -1462,9 +1462,9 @@
             "description": "Bundle to connect PHPhinder with Symfony",
             "support": {
                 "issues": "https://github.com/eliasfernandez/phphinder-bundle/issues",
-                "source": "https://github.com/eliasfernandez/phphinder-bundle/tree/v0.1.7"
+                "source": "https://github.com/eliasfernandez/phphinder-bundle/tree/v0.1.8"
             },
-            "time": "2025-01-19T12:35:32+00:00"
+            "time": "2025-01-19T19:58:10+00:00"
         },
         {
             "name": "monolog/monolog",
